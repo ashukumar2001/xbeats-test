@@ -36,14 +36,14 @@ const Player = () => {
     load,
     playing,
     togglePlayPause,
-    getPosition,
+    // getPosition,
     isLoading,
     loop,
     looping,
-    mute,
-    muted,
-    volume,
-    setVolume,
+    // mute,
+    // muted,
+    // volume,
+    // setVolume,
     isReady,
   } = useGlobalAudioPlayer();
   const [isShuffle, setIsShuffle] = useState(false);
@@ -58,7 +58,7 @@ const Player = () => {
     } else {
       setIsPlayerInit(true);
     }
-  }, [isPlayerInit, togglePlayPause]);
+  }, [isPlayerInit, togglePlayPause, setIsPlayerInit]);
 
   const handleNext = () => {
     // Initialize the player
@@ -151,6 +151,7 @@ const Player = () => {
         onend: handleOnEnd,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queue, currentSongIndex, isPlayerInit]);
 
   useEffect(() => {

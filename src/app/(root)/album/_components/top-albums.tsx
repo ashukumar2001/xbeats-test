@@ -21,9 +21,12 @@ const TopAlbums = ({ initialAlbums, lang }: TopAlbumsProps) => {
     });
 
   const topAlbums = data.pages.flatMap((page) => page.data);
-  const onChange = useCallback((isIntersecting: boolean) => {
-    if (isIntersecting) fetchNextPage();
-  }, []);
+  const onChange = useCallback(
+    (isIntersecting: boolean) => {
+      if (isIntersecting) fetchNextPage();
+    },
+    [fetchNextPage]
+  );
   const [ref] = useIntersectionObserver({
     threshold: 0.5,
     onChange,

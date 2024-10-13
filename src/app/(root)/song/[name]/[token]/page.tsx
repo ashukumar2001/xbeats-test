@@ -21,22 +21,21 @@ const loadPageData = async (token: string) => {
   const song = songDetails.songs[0];
   const modules = songDetails.modules!;
   const artistsTopSongParams = modules.songs_by_same_artists.params;
-  const actorsTopSongParams = modules.songs_by_same_actors.params;
-  const hasActor = song.artist_map.artists.some(
-    (artist) => artist.role === "starring"
-  );
+  // const actorsTopSongParams = modules.songs_by_same_actors.params;
+  // const hasActor = song.artist_map.artists.some(
+  //   (artist) => artist.role === "starring"
+  // );
 
   const [album, trending, recommendations, songFromSameArtists] =
     await Promise.all([
       getAlbumDetails(song.album_url.split("/").pop()!),
       getTrending("song"),
       getSongRecommendations(song.id),
-      // getArtistTopSongs(
-      //   artistsTopSongParams.artist_id,
-      //   artistsTopSongParams.song_id,
-      //   artistsTopSongParams.lang
-      // ),
-      [],
+      getArtistTopSongs(
+        artistsTopSongParams.artist_id,
+        artistsTopSongParams.song_id,
+        artistsTopSongParams.lang
+      ),
     ]);
 
   return {

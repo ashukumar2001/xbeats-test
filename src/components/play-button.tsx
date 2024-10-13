@@ -9,8 +9,8 @@ import {
   getPlaylistDetails,
   getSongDetails,
 } from "@/lib/music-api-instance";
-import { Episode, Song, Sort, Type } from "@/types";
-import { usePathname, useSearchParams } from "next/navigation";
+import { Episode, Song, Type } from "@/types";
+// import { useSearchParams } from "next/navigation";
 import { HTMLAttributes } from "react";
 import { toast } from "sonner";
 
@@ -19,12 +19,12 @@ type PlayButtonProps = HTMLAttributes<HTMLButtonElement> & {
   token: string;
 };
 const PlayButton = ({ type, token, children, ...rest }: PlayButtonProps) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // const pathname = usePathname();
+  // const searchParams = useSearchParams();
   const [initialQueue, setQueue] = useQueue();
   const [, setIsPlayerInit] = useIsPlayerInit();
   const [, setCurrentSongIndex] = useCurrentSongIndex();
-  const sort = (searchParams.get("sort") as Sort) ?? "desc";
+  // const sort = (searchParams.get("sort") as Sort) ?? "desc";
 
   const handlePlay = async () => {
     // Check if the song is already in the queue

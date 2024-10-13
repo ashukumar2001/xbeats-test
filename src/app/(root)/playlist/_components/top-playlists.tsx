@@ -22,9 +22,12 @@ const TopPlaylists = ({ initialPlaylists, lang }: TopPlaylistsProps) => {
     });
 
   const topPlaylists = data.pages.flatMap((page) => page.data);
-  const onChange = useCallback((isIntersecting: boolean) => {
-    if (isIntersecting) fetchNextPage();
-  }, []);
+  const onChange = useCallback(
+    (isIntersecting: boolean) => {
+      if (isIntersecting) fetchNextPage();
+    },
+    [fetchNextPage]
+  );
   const [ref] = useIntersectionObserver({
     threshold: 0.5,
     onChange,

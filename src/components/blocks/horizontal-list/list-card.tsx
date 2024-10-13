@@ -1,4 +1,4 @@
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ImageWithFallback from "@/components/image-with-fallback";
 import {
@@ -28,12 +28,12 @@ export type ListCardProps = {
 const ListCard = ({
   name,
   image,
-  explicit,
+  // explicit,
   subtitle,
-  className,
+  // className,
   aspect,
-  hidePlayButton,
-  isCurrentSeason,
+  // hidePlayButton,
+  // isCurrentSeason,
   url,
   type,
 }: ListCardProps) => {
