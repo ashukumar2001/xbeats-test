@@ -40,7 +40,7 @@ const musicApiInstance = async <T>(
   const languages = cookiesStore.get("language")?.value;
   const queryParams = {
     ...params,
-    lang: params && params["lang"] ? params.lang : languages ?? "hindi",
+    lang: params && params["lang"] ? params.lang : languages ?? "",
   };
   const url = new URL(path, process.env.MUSIC_API_BASE_URL);
   url.search = new URLSearchParams(queryParams).toString();
